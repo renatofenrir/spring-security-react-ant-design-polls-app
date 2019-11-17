@@ -36,3 +36,25 @@ spec:
   - name: http
     port: 80
     targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: polling-app-client-ingress
+  namespace: polling-app
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: 500m
+    ingress.kubernetes.io/proxy-body-size: 500m
+spec:
+  tls:
+  - hosts:
+    - polling-app.rancher-rodeo.io
+  rules:
+  - host: polling-app.rancher-rodeo.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: polling-app-client
+          servicePort: 80
