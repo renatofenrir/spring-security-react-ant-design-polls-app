@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  database: polls
+  url: jdbc:mysql://polling-app-mysql:3306/polls?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: mysql-db-url

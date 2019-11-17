@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  password: changeme
+  username: changeme
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: mysql-user-pass
